@@ -1,0 +1,12 @@
+# python
+__pycache__/
+*.py[cod]
+
+# data & models
+data/processed/
+models/
+*.safetensors
+wandb/
+
+# env
+.env

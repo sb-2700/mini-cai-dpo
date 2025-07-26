@@ -1,0 +1,23 @@
+[project]
+name = "mini-cai-dpo"
+version = "0.1.0"
+description = "A mini Constitutional AI project with SL and DPO fine-tuning."
+authors = [
+    {name = "Henrik Halasz",email = "hkh34@cam.ac.uk"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = "^3.11"
+dependencies = [
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+isort = "^6.0.1"
+pytest = "^8.4.1"
+
