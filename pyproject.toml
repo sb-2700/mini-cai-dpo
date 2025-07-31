@@ -9,6 +9,7 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = "^3.11"
 dependencies = [
+    "datasets (>=4.0.0,<5.0.0)"
 ]
 
 
