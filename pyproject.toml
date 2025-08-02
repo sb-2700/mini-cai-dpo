@@ -9,7 +9,11 @@ license = {text = "MIT"}
 readme = "README.md"
 requires-python = "^3.11"
 dependencies = [
-    "datasets (>=4.0.0,<5.0.0)"
+    "datasets>=4.0.0,<5.0.0",
+    "transformers>=4.30.0",
+    "torch>=2.0.0",
+    "accelerate>=0.20.0",
+    "python-dotenv (>=1.1.1,<2.0.0)"
 ]
 
 [tool.poetry]
