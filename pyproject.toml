@@ -12,6 +12,8 @@ dependencies = [
     "datasets (>=4.0.0,<5.0.0)"
 ]
 
+[tool.poetry]
+packages = [{include = "mini_cai", from = "src"}]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
