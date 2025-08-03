@@ -10,3 +10,5 @@ wandb/
 
 # env
 .env
+
+harmful_templates.py
