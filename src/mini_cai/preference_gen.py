@@ -6,11 +6,11 @@ Sample two responses (A,B) from the SL-CAI model per prompt, ask a judge
 JSONL ready for DPOTrainer.
 
 Usage:
-poetry run python -m mini_cai.preference_gen \
+python -m src.mini_cai.preference_gen \
     --prompt_file data/raw/red_team_prompts_preference.jsonl \
     --sl_cai_path models/stage_02_sl_cai \
     --out_file    data/processed/preferences.jsonl \
-    --judge gpt-4o \ # or "local" for local judge
+    --judge gpt-4o \
     --n_per_prompt 2 \
 """
 
@@ -74,7 +74,7 @@ class LocalJudge:
         )
         self.pipe = pipeline("text-generation", model=model, tokenizer=tok, device=0)
 
-        def choose(self, q):
+    def choose(self, q):
             ans = self.pipe(q, max_new_tokens=2,
                             temperature=0.1,
                             do_sample=False,
@@ -143,7 +143,8 @@ def main():
             a, b = random.sample(samples, 2)
 
             # judge
-            choice = judge.choose(prompt, a, b)
+            judge_prompt = build_judge_prompt(prompt, a, b)
+            choice = judge.choose(judge_prompt)
             fout.write(json.dumps({"prompt": prompt, "A": a, "B": b, "choice": choice}) + "\n")
 
     print(f"Preference pairs saved to {out_path}")
