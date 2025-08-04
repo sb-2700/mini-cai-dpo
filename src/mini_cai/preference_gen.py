@@ -6,7 +6,7 @@ Sample two responses (A,B) from the SL-CAI model per prompt, ask a judge
 JSONL ready for DPOTrainer.
 
 Usage:
-poetry run python -m mini_cai.preference_gen \
+python -m src.mini_cai.preference_gen \
     --prompt_file data/raw/red_team_prompts_preference.jsonl \
     --sl_cai_path models/stage_02_sl_cai \
     --out_file    data/processed/preferences.jsonl \

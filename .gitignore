@@ -1,14 +1,54 @@
-# python
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
 
-# data & models
-data/processed/
-models/
-*.safetensors
-wandb/
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+.ENV/
+.env.bak/
 
-# env
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+*.log
 .env
+models/
+data/processed/
+data/raw/*.jsonl
+!data/raw/example.jsonl
 
-harmful_templates.py
+# ML/AI
+wandb/
+lightning_logs/
+checkpoints/
