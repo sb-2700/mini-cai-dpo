@@ -4,7 +4,7 @@ Generate <prompt, response> pairs of deliberately harmful text.
 Model: EleutherAI/gpt-j-1.3B 
 
 Usage:
-poetry run python -m mini_cai.scripts.generate_harmful_pairs \
+python -m src.mini_cai.scripts.generate_harmful_pairs \
     --prompt_file data/raw/red_team_prompts_100.jsonl \
     --out_file    data/raw/harmful_pairs.jsonl \
     --debug_n 2 \ # for debugging, generate only 2 samples

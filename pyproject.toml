@@ -7,24 +7,26 @@ authors = [
 ]
 license = {text = "MIT"}
 readme = "README.md"
-requires-python = "^3.11"
+requires-python = ">=3.11"
 dependencies = [
-    "datasets>=4.0.0,<5.0.0",
+    "datasets>=4.0.0",
     "transformers>=4.30.0",
     "torch>=2.0.0",
     "accelerate>=0.20.0",
-    "python-dotenv (>=1.1.1,<2.0.0)"
+    "python-dotenv>=1.1.1",
+    "tqdm>=4.67.0",
+    "openai>=1.0.0",
+    "trl>=0.7.0"
 ]
 
-[tool.poetry]
-packages = [{include = "mini_cai", from = "src"}]
+[project.optional-dependencies]
+dev = [
+    "black>=25.1.0",
+    "isort>=6.0.1",
+    "pytest>=8.4.1"
+]
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.group.dev.dependencies]
-black = "^25.1.0"
-isort = "^6.0.1"
-pytest = "^8.4.1"
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
 

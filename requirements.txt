@@ -1,0 +1,18 @@
+# Core ML libraries
+torch>=2.0.0
+transformers>=4.30.0
+datasets>=4.0.0
+accelerate>=0.20.0
+
+# Additional dependencies
+tqdm>=4.67.0
+python-dotenv>=1.1.0
+openai>=1.0.0
+
+# DPO training
+trl>=0.7.0
+
+# Development dependencies (optional)
+black>=25.1.0
+isort>=6.0.1
+pytest>=8.4.1
