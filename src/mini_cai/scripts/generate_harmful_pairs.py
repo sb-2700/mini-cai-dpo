@@ -20,14 +20,15 @@ from transformers import (
     AutoModelForCausalLM
 )
 
-from mini_cai.prompts.harmful_templates import HARMFUL_ROLE_HEADER, HARMFUL_FEWSHOT
+from src.mini_cai.prompts.harmful_templates import HARMFUL_ROLE_HEADER, HARMFUL_FEWSHOT
 
 
 def parse_args():
     p = argparse.ArgumentParser()
     p.add_argument("--prompt_file", required=True)
     p.add_argument("--out_file", required=True)
-    p.add_argument("--model", default="EleutherAI/gpt-neo-1.3B")
+    #p.add_argument("--model", default="EleutherAI/gpt-neo-1.3B")
+    p.add_argument("--model", default="mistralai/Mistral-7B-Instruct-v0.1")
     p.add_argument("--max_new_tokens", type=int, default=128)
     p.add_argument("--temperature", type=float, default=1.2)
     p.add_argument("--top_p", type=float, default=0.98)
@@ -53,13 +54,14 @@ def main():
     model = AutoModelForCausalLM.from_pretrained(
         args.model,
         torch_dtype=torch.float16,
-        device_map={"": "mps"} if torch.backends.mps.is_available() else "auto",
+        #device_map={"": "mps"} if torch.backends.mps.is_available() else "auto",
+        device_map="auto"
     )
     generator = pipeline(
         "text-generation",
         model=model,
         tokenizer=tokenizer,
-        device=0 if torch.backends.mps.is_available() else -1,
+        #device=0 if torch.backends.mps.is_available() else -1,
     )
     
     out_path = pathlib.Path(args.out_file)
